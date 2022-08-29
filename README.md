@@ -9,7 +9,7 @@ For now, only in the terminal, but the idea is to make a interface later
 ```bash
 $ To install and activate VENV(ON CMD):
 $ command pip install virtualenv
-$ virtualenv venv
+$ command virtualenv venv
 $ command "cd venv/Scripts"
 $ command "activate"
 
