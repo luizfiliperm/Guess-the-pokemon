@@ -52,6 +52,18 @@ def pokeGen(pokemon):
     return gen
 
 
+def allTypes():
+
+    typeList = list()
+    res = requests.get('https://pokeapi.co/api/v2/type')
+    typeJson = res.json()
+    for type in typeJson['results']:
+        if type['name'] == 'unknown':
+            break
+        typeList.append(type['name'].capitalize())
+    return typeList
+
+
 def returnPokemon(nameOrId = '', min=1, max=905, rand = False):
     pokemon = dict()
 
