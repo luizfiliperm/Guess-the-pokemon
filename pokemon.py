@@ -26,6 +26,10 @@ def pokeType(pokemon):
 
     return type
 
+def pokeWeight(pokemon):
+    pokemon = pokeAPI(pokemon)
+    weight = pokemon['weight'] / 10
+    return weight
 
 def pokeGen(pokemon):
     pokemon = pokeAPI(pokemon)
@@ -73,5 +77,5 @@ def returnPokemon(nameOrId = '', min=1, max=905, rand = False):
     pokemon['name'] = pokeName(nameOrId)
     pokemon['type'] = pokeType(nameOrId)
     pokemon['gen'] = pokeGen(nameOrId)
-
+    pokemon['weight'] = pokeWeight(nameOrId)
     return pokemon

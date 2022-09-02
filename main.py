@@ -5,6 +5,7 @@ randPokemon = returnPokemon(rand=True)
 info = {
     'name' : 'Unknown',
     'type' : ['Unknown', 'Unknown'],
+    'weight': 'Unknown',
     'gen' : 'Unknown',
 }
 
@@ -41,20 +42,31 @@ while info != randPokemon:
             checkedTypes.append(checkType)
             uncheckedTypes.remove(f'{checkType}')
 
+    # Weight
+    if info['weight'] == randPokemon['weight']:
+        pass
+    elif randPokemon['weight'] == checkPokemon['weight']:
+        info['weight'] = randPokemon['weight']
+    elif checkPokemon['weight'] > randPokemon['weight'] :
+        info['weight'] = f'< {checkPokemon["weight"]}'
+    elif checkPokemon['weight'] < randPokemon['weight']:
+        info['weight'] = f'> {checkPokemon["weight"]}'
+
+
     # Gen
     if info['gen'] == randPokemon['gen']:
         pass
     elif checkPokemon['gen'] == randPokemon['gen']:
         info['gen'] = randPokemon['gen']
     elif checkPokemon['gen'] < randPokemon['gen']:
-        info['gen'] = f'>{checkPokemon["gen"]}'
+        info['gen'] = f'> {checkPokemon["gen"]}'
     elif checkPokemon['gen'] > randPokemon['gen']:
-        info['gen'] = f'<{checkPokemon["gen"]}'
+        info['gen'] = f'< {checkPokemon["gen"]}'
 
     print("=-=" * 44)
 
-    print(f"{checkPokemon['name']} - {checkPokemon['type'][0]}, {checkPokemon['type'][1]} - Gen {checkPokemon['gen']}")
-    print(f"{info['name']} - {info['type'][0]}, {info['type'][1]} - Gen {info['gen']}")
+    print(f"{checkPokemon['name']} - {checkPokemon['type'][0]}, {checkPokemon['type'][1]}, weight: {checkPokemon['weight']}kg - Gen {checkPokemon['gen']}")
+    print(f"{info['name']} - {info['type'][0]}, {info['type'][1]}, weight: {info['weight']}kg - Gen {info['gen']}")
 
     print("=-=" * 44)
 
